@@ -11,7 +11,7 @@ RUN apk add --no-cache vim
 RUN mkdir /opt/wm
 RUN mkdir /opt/wm/scripts
 
-COPY ./scripts/* /opt/wm/scripts
+COPY ./images/alpine/scripts/* /opt/wm/scripts
 
 # Set Bash as the default command for interactive use
 CMD ["/bin/bash"]
