@@ -1,8 +1,9 @@
 FROM alpine:latest
 
-ARG CI_PIPELINE=false
-RUN BASE_PATH="."
-RUN if [ "$CI_PIPELINE" = true ]; then $BASE_PATH="images/alpine"; fi
+# ARG CI_PIPELINE=false
+# RUN BASE_PATH="."
+ARG BASE_PATH="."
+# RUN if [ "$CI_PIPELINE" = true ]; then BASE_PATH="images/alpine"; fi
 
 # bash
 RUN apk add --no-cache bash
