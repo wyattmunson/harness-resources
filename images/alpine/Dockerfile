@@ -9,6 +9,7 @@ RUN apk add --no-cache jq
 RUN apk add --no-cache vim
 
 RUN mkdir /opt/wm
+RUN mkdir /opt/wm/scripts
 
 COPY ./scripts/* /opt/wm/scripts
 
