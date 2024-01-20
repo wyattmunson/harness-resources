@@ -1,5 +1,9 @@
 FROM alpine:latest
 
+ARG CI_PIPELINE=false
+RUN BASE_PATH="."
+RUN if [ "$CI_PIPELINE" = true ]; then BASE_PATH="images/alpine"; fi
+
 # bash
 RUN apk add --no-cache bash
 RUN apk add --no-cache curl
@@ -11,7 +15,9 @@ RUN apk add --no-cache vim
 RUN mkdir /opt/wm
 RUN mkdir /opt/wm/scripts
 
-COPY ./images/alpine/scripts/* /opt/wm/scripts
+
+COPY ${BASE_PATH}/scripts/* /opt/wm/scripts
+COPY ${BASE_PATH}/resources/.bashrc /root/.bashrc
 
 # Set Bash as the default command for interactive use
 CMD ["/bin/bash"]

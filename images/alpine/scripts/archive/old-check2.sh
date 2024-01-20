@@ -17,24 +17,21 @@ echo "INFO : Checking for variable: $CHECK_VAR"
 
 # Check if the environment variable exists
 # -v returns true if VAR is set
-# -z return true if string length is 0 - unset or empty
-# -n retusn true if string length is non-zero - set to some string
 if [[ -v "$CHECK_VAR" ]]; then
+    # check if it's populated
+    # if [[ ! -z "$CHECK_VAR" ]]; then
+    # -z return true if string length is 0 - unset or empty
+    # -n retusn true if string length is non-zero - set to some string
     if [[ -z "$CHECK_VAR" ]]; then
+        # if [ "$2" = "exit" ]; then exit 1; fi
         echo "ERROR: Environment variable present, but not set to a value. Exiting"
         echo "ERROR: Populate the environment variable '$CHECK_VAR' with a value."
     else
-        echo "INFO : '$CHECK_VAR' is set."
+        echo "INFO : '$CHECK_VAR' is set"
     fi
 else
     echo "ERROR: Environment variable '$CHECK_VAR' is not set."
-    if [[ "$2" = "exit" || "$2" = "hard" ]]; then 
-        echo "ERROR: You must set the above env variable to continue. Exiting."
-        exit 1
-    elif [ "$2" = "soft" ]; then
-        echo "ERROR: You must set the above env variable to continue. Exiting."
-        exit 0
-    elif [ "$2" = "warn" ]; then
-        echo "WARN : Variable not set, but not required. Continuing."
-    fi
+    if [ "$2" = "exit" ]; then exit 1; fi
 fi
+
+echo "DONE : Environment variable check"
