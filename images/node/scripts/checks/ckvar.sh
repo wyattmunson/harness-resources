@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "git check dir"
+pwd
+
 function ckvar() {
 
 
@@ -30,11 +33,11 @@ function ckvar() {
     else
         echo "ERROR: Environment variable '$CHECK_VAR' is not set."
         if [[ "$2" = "exit" || "$2" = "hard" ]]; then 
-            echo "ERROR: You must set the above env variable to continue. Exiting."
+            echo "ERROR: The above env variable is required to continue. Exiting."
             exit 1
         elif [ "$2" = "soft" ]; then
             echo "ERROR: You must set the above env variable to continue. Exiting."
-            exit 0
+            return 1
         elif [ "$2" = "warn" ]; then
             echo "WARN : Variable not set, but not required. Continuing."
         fi
