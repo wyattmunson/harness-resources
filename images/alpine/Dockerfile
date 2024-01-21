@@ -12,6 +12,7 @@ RUN apk add --no-cache git
 RUN apk add --no-cache bind-tools
 RUN apk add --no-cache jq
 RUN apk add --no-cache vim
+RUN apk add --no-cache github-cli
 
 RUN mkdir /opt/wm
 RUN mkdir /opt/wm/scripts
