@@ -42,12 +42,12 @@ rm .GIT_PAT_TOKEN
 gh auth setup-git
 
 # generate and set commit author metadata
-GIT_EMAIL="${GIT_EMAIL:-"harness-pipeline@example.com"}"
-GIT_NAME="${GIT_NAME:-"Harness Pipeline Automation"}"
-log "info" "Set git email to: $GIT_EMAIL"
-log "info" "Set git name to: $GIT_NAME"
-git config --global user.email "$GIT_EMAIL"
-git config --global user.name "$GIT_NAME"
+AUTHOR_EMAIL="${AUTHOR_EMAIL:-"harness-pipeline@example.com"}"
+AUTHOR_NAME="${AUTHOR_NAME:-"Harness Pipeline Automation"}"
+log "info" "Set git email to: $AUTHOR_EMAIL"
+log "info" "Set git name to: $AUTHOR_NAME"
+git config --global user.email "$AUTHOR_EMAIL"
+git config --global user.name "$AUTHOR_NAME"
 
 # get file paths to commit, else commit all files
 GIT_COMMIT_FILES=${GIT_COMMIT_FILES:-"-A"}
@@ -68,15 +68,5 @@ fi
 git config --global --add --bool push.autoSetupRemote true
 log "info" "Pushing to remote..."
 git push
-
-
-# set upstream if new branch
-# if [[ -n "$(git branch | grep $GIT_BRANCH)" ]]; then
-#     log "info" "Pushing to existing branch..."
-#     git push
-# else
-#     log "info" "Pushing to new branch..."
-#     git push --set-upstream origin $GIT_BRANCH
-# fi
 
 log "done" "Git commit"

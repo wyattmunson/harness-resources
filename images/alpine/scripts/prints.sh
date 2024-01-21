@@ -8,7 +8,7 @@ function log() {
     elif [[ "$1" = "start" ]]; then
         echo "START: $2"
     elif [[ "$1" = "done" ]]; then
-        echo "START: $2"
+        echo "DONE : $2"
     elif [[ "$1" = "warn" ]]; then
         echo "WARN : $2"
     elif [[ "$1" = "done" ]]; then
