@@ -18,6 +18,8 @@ Clone a repository from GitHub.
 | GIT_REPO_PATH | Yes      | Repo org and name `vendor/app-name`. Can also git a git URL. |
 | GIT_PAT_TOKEN | Yes      | GitHub Personal Access Token                                 |
 
+- `GIT_REPO_PATH` - this is the org and name of the repository, like `acmecorp/website-frontend`. This can also accept a full URL path if using GitHub at a custom location like `https://git.example.com/acme-corp/website-frontend`.
+
 ### gh-commitAndPush
 
 Commit changes to the codebase and push to the remote repository.
@@ -33,6 +35,16 @@ Commit changes to the codebase and push to the remote repository.
 | GIT_COMMIT_MESSAGE |          | Message for the commit. Defaults to generic message.                                      |
 | REPO_LOCATION      |          | Relative or absolute filepath on system to find repo. Defaults to current directory.      |
 | GIT_BRANCH         |          | Branch name to checkout to. Does not need to exist on remote. Defaults to current branch. |
+
+- `GIT_PAT_TOKEN` - GitHub Personal Access Token
+- `AUTHOR_EMAIL` - Email address of author associated with commit.
+- `AUTHOR_NAME` - Name of author associated with commit.
+- `SKIP_PUSH` - Set to `true` to skip git push step and only commit changes.
+- `GIT_COMMIT_FILES` - Enter one or more files or paths for to include in the commit. Defaults to all files.
+  - Specify multiple paths like `**/*.js package.json`
+- `GIT_COMMIT_MESSAGE` - Message for the commit. Defaults to generic message.
+- `REPO_LOCATION` - Relative or absolute filepath on system to find repo. Defaults to current directory.
+- `GIT_BRANCH` - Branch name to checkout to. Does not need to exist on remote. Defaults to current branch.
 
 ### gh-merge
 

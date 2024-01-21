@@ -28,10 +28,6 @@ TEST_CMD="source ${BASE_PATH}/check-var.sh"
 $TEST_CMD "GIT_PAT_TOKEN" "debug"
 $TEST_CMD "GIT_BRANCH" "debug"
 
-# checkout if necessary
-# if [[ -n "$(git branch | grep main)" ]]; then echo "yes"; fi
-# git checkout
-
 # Authention and credential setup
 log "info" "Loggin in..."
 echo $GIT_PAT_TOKEN > .GIT_PAT_TOKEN
@@ -77,13 +73,13 @@ AUTO_MERGE_FLAG=""
 if [[ "$AUTO_MERGE" = true ]]; then AUTO_MERGE_FLAG=" --auto"; fi
 
 DISABLE_AUTO_MERGE_FLAG=""
-if [[ "$DISABLE_AUTO_MERGE" = true ]]; then DISABLE_AUTO_MERGE_FLAG=" --auto"; fi
+if [[ "$DISABLE_AUTO_MERGE" = true ]]; then DISABLE_AUTO_MERGE_FLAG=" --disable-auto"; fi
 
 DELETE_BRANCH_FLAG=""
-if [[ "$DELETE_BRANCH" = true ]]; then DELETE_BRANCH_FLAG=" --auto"; fi
+if [[ "$DELETE_BRANCH" = true ]]; then DELETE_BRANCH_FLAG=" --delete-branch"; fi
 
 ADMIN_FLAG=""
-if [[ "$ADMIN" = true ]]; then ADMIN_FLAG=" --auto"; fi
+if [[ "$ADMIN" = true ]]; then ADMIN_FLAG=" --admin"; fi
 
 SUBJECT_TEXT=""
 if [[ -n "$SUBJECT" ]]; then SUBJECT_TEXT=" --subject $SUBJECT_TEXT"; fi
