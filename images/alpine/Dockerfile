@@ -20,6 +20,7 @@ RUN mkdir /opt/wm/scripts
 
 COPY ${BASE_PATH}/scripts/* /opt/wm/scripts
 COPY ${BASE_PATH}/resources/.bashrc /root/.bashrc
+RUN chmod +x /opt/wm/scripts/*
 
 # Set Bash as the default command for interactive use
 CMD ["/bin/bash"]

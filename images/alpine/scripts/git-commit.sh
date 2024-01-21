@@ -34,3 +34,5 @@ log "info" "Set git name to: $GIT_NAME"
 # git config --global url."https://your_username:$GIT_AUTH_TOKEN@github.com/".insteadOf "https://github.com/"
 # git remote set-url origin https://your_username:$GIT_AUTH_TOKEN@github.com/your_username/your_repo.git
 
+# git clone https://$GIT_AUTH_TOKEN@$GIT_BASE_URL/$GIT_ORG_NAME/$GIT_REPO_NAME.git
+# git remote set-url origin https://$GIT_PAT_USERNAME:$GIT_AUTH_TOKEN@github.com/$GIT_ORG_NAME/$GIT_REPO_NAME.git
