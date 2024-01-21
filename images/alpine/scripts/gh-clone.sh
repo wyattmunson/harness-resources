@@ -7,7 +7,7 @@ log "start" "Clone git repo"
 log "info" "Setting git config..."
 
 TEST_CMD="source ${BASE_PATH}/check-var.sh"
-alias ckvar="$TEST_CMD"
+alias ckvar='$TEST_CMD'
 ckvar GIT_REPO_NAME "debug"
 ckvar GIT_PAT_TOKEN "debug"
 
