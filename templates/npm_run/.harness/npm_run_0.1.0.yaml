@@ -15,11 +15,16 @@ template:
       shell: Bash
       command: |-
         # TODO: Check vars
+        $PRE_SCRIPT
 
         npm ${NPM_COMMAND} ${NPM_RUN} ${COMMAND_OPTIONS}
+
+        $POST_SCRIPT
       envVariables:
         NPM_RUN: <+input>
         TASK_RUNNER: <+input>.allowedValues(npm,yarn,nx)
         NPM_COMMAND: <+input>.allowedValues(install,ci,test,build,run,publish)
         COMMAND_OPTIONS: <+input>
+        PRE_SCRIPT: <+input>
+        POST_SCRIPT: <+input>
     description: Run a NPM command
