@@ -1,13 +1,13 @@
 #!/bin/bash
 
 BASE_PATH=${BASE_PATH:-"/opt/wm/scripts"}
-source ${BASE_PATH}/checks/ckvar.sh
-source ${BASE_PATH}/checks/git-check.sh
+source ${BASE_PATH}/ckvar.sh
+source ${BASE_PATH}/git-check.sh
 
 pwd
 ls
 
-echo "sourcing from ${BASE_PATH}/checks/ckvar.sh"
+echo "sourcing from ${BASE_PATH}/ckvar.sh"
 
 # CHECK / FIND CODEBASE
 # TODO: send warning if not provided
