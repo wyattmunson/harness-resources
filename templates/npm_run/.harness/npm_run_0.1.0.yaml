@@ -20,6 +20,10 @@ template:
         npm ${NPM_COMMAND} ${NPM_RUN} ${COMMAND_OPTIONS}
 
         $POST_SCRIPT
+      reports:
+        type: JUnit
+        spec:
+          paths: <+input>
       envVariables:
         NPM_RUN: <+input>
         TASK_RUNNER: <+input>.allowedValues(npm,yarn,nx)
