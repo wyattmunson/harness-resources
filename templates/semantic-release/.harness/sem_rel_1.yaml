@@ -17,7 +17,7 @@ template:
 
         if [[ -v "$POST_SCRIPT" ]]; then $POST_SCRIPT; fi
       envVariables:
-        GITHUB_TOKEN: <+secrets.getValue("account.cat_pat")>
+        GITHUB_TOKEN: <+input>
       outputVariables:
         - name: NEXT_VERSION
   identifier: sem_rel
