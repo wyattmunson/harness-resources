@@ -5,7 +5,7 @@ function git_check() {
 
 
     BASE_PATH=${BASE_PATH:-"/opt/wm/scripts"}
-    source ${BASE_PATH}/helpers/logger.sh
+    source ${BASE_PATH}/logger.sh
 
     # Check git
     git status &> /dev/null
