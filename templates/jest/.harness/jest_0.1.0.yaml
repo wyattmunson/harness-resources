@@ -28,3 +28,4 @@ template:
       envVariables:
         PRE_SCRIPT: <+input>
         POST_SCRIPT: <+input>
+        JEST_JUNIT_OUTPUT_DIR: /harness/reports
