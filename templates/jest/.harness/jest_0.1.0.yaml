@@ -11,4 +11,14 @@ template:
     type: Run
     spec:
       shell: Bash
-      command: command
+      command: |-
+        $PRE_SCRIPT
+
+        npm i --save-dev jest-junit
+        jest --ci --runInBand --reporters=default --reporters=jest-junit --collectCoverage=true
+        # jest
+
+        $POST_SCRIPT
+      envVariables:
+        PRE_SCRIPT: <+input>
+        POST_SCRIPT: <+input>
