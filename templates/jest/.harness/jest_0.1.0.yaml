@@ -10,12 +10,18 @@ template:
   spec:
     type: Run
     spec:
+      connectorRef: account.wm_dockerhub
+      image: wyattmunson/node-cicd:0.1.6
       shell: Bash
       command: |-
         $PRE_SCRIPT
 
+        # COLLECT_COVERAGE
+        [[ "$CACHE" = true ]] && CACHE=" --cache" || CACHE=""
+        [[ "$COVERAGE" = true ]] && COVERAGE=" --collectCoverage=true" || COVERAGE=""
+
         npm i --save-dev jest-junit
-        jest --ci --runInBand --reporters=default --reporters=jest-junit --collectCoverage=true
+        jest --ci --runInBand --reporters=default --reporters=jest-junit ${COVERAGE} ${COMMAND_OPTIONS}
         # jest
 
         $POST_SCRIPT
