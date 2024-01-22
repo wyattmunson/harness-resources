@@ -17,4 +17,5 @@ template:
       envVariables:
         NPM_RUN: <+input>
         TASK_RUNNER: <+input>.allowedValues(npm,yarn,nx)
+        NPM_COMMAND: <+input>.allowedValues(install,ci,test,build,run,publish)
     description: Run a NPM command
