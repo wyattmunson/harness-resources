@@ -11,11 +11,15 @@ template:
     type: Run
     spec:
       connectorRef: account.wm_dockerhub
-      image: wyatt/munson:cicd-node:0.1.4
+      image: wyattmunson/cicd-node:0.1.6
       shell: Bash
-      command: npm run ${NPM_RUN}
+      command: |-
+        # TODO: Check vars
+
+        npm ${NPM_COMMAND} ${NPM_RUN} ${COMMAND_OPTIONS}
       envVariables:
         NPM_RUN: <+input>
         TASK_RUNNER: <+input>.allowedValues(npm,yarn,nx)
         NPM_COMMAND: <+input>.allowedValues(install,ci,test,build,run,publish)
+        COMMAND_OPTIONS: <+input>
     description: Run a NPM command
