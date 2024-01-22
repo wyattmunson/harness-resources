@@ -1,0 +1,23 @@
+template:
+  name: sem_rel
+  type: Step
+  projectIdentifier: default_project
+  orgIdentifier: default
+  spec:
+    type: Run
+    spec:
+      connectorRef: account.wm_dockerhub
+      image: wyattmunson/cicd-node:0.1.6
+      shell: Bash
+      command: |-
+        if [[ -v "$PRE_SCRIPT" ]]; then $PRE_SCRIPT; fi
+
+        source /opt/wm/scripts/semrel-node.sh
+
+        if [[ -v "$POST_SCRIPT" ]]; then $POST_SCRIPT; fi
+      envVariables:
+        GITHUB_TOKEN: <+secrets.getValue("account.cat_pat")>
+      outputVariables:
+        - name: NEXT_VERSION
+  identifier: sem_rel
+  versionLabel: "1"
