@@ -20,5 +20,6 @@ template:
         GITHUB_TOKEN: <+input>
       outputVariables:
         - name: NEXT_VERSION
+    description: Manage versioning and git tags with semantic release.
   identifier: sem_rel
   versionLabel: "1"
